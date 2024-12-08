@@ -73,15 +73,15 @@ def calc_throughput(R1):
     """Calculates the throughput when L1 hit ratio is 'R1'"""
 
     l3_miss = (1.0 - R3) * L_MEM
-    l3_hit  = R3 * L_L3
+    l3_hit  = L_L3
     l3_latency = l3_hit + l3_miss
 
     l2_miss = (1.0 - R2) * l3_latency
-    l2_hit  = R2 * L_L2
+    l2_hit  = L_L2
     l2_latency = l2_hit + l2_miss
 
     l1_miss = (1.0 - R1) * l2_latency
-    l1_hit  = R1 * L_L1
+    l1_hit  = L_L1
     l1_latency = l1_hit + l1_miss
 
     _N_STAR = math.pow(R1, B) * N + (1 - math.pow(R1, B)) * N_0
